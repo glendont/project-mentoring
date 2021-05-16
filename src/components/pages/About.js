@@ -55,7 +55,7 @@ const About = () => {
 
         <Col md={2} > </Col> 
         <Col md={5}>
-            <p style={{fontSize:'40px', marginTop:"7%", fontFamily:"Amazon Ember"}}><b> Inclusive Content Audit Tool FAQs </b></p>
+            <p style={{fontSize:'40px', marginTop:"7%", fontFamily:"Amazon Ember"}}><b> The Mentoring Circle FAQs </b></p>
         </Col> 
         <Col md={5} > </Col> 
         </Row>
