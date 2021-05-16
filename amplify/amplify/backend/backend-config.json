@@ -1,0 +1,22 @@
+{
+  "auth": {
+    "awsicatf61c8d88": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "awsicat": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "analytics": {
+    "awspinpointicat": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}

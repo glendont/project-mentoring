@@ -1,0 +1,54 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsicat-dev-163110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::891048848327:role/amplify-awsicat-dev-163110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::891048848327:role/amplify-awsicat-dev-163110-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awsicat-dev-163110-deployment",
+      "UnauthRoleName": "amplify-awsicat-dev-163110-unauthRole",
+      "StackName": "amplify-awsicat-dev-163110",
+      "StackId": "arn:aws:cloudformation:us-east-1:891048848327:stack/amplify-awsicat-dev-163110/d7f4a510-0a09-11eb-a3f5-12c1d85cca19",
+      "AmplifyAppId": "d2lfkltfp90l7m"
+    }
+  },
+  "auth": {
+    "awsicatf61c8d88": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "output": {
+        "AppClientSecret": "1c3ibnipbrmn5pt2o30uc2lmngjld4hc2ak3miv70e147f3dpvn0",
+        "UserPoolId": "us-east-1_l64cjeby4",
+        "AppClientIDWeb": "722c7923a25pchutkqpgdrl9ih",
+        "AppClientID": "49spr2g0258crlsn0echfnnqjf",
+        "IdentityPoolId": "us-east-1:3e2137f6-f85d-43f8-8757-92f7c8911eab",
+        "IdentityPoolName": "awsicatf61c8d88_identitypool_f61c8d88__dev",
+        "UserPoolName": "awsicatf61c8d88_userpool_f61c8d88"
+      },
+      "lastPushTimeStamp": "2020-11-23T07:58:07.681Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awsicat-dev-163110-deployment/amplify-cfn-templates/auth/awsicatf61c8d88-cloudformation-template.yml",
+        "logicalId": "authawsicatf61c8d88"
+      },
+      "lastPushDirHash": "33X7sihEXjYG62C7wiPqUEdXXrM="
+    }
+  },
+  "storage": {
+    "awsicat": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "BucketName": "inclusive-content-audit-tool-bucket163110-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2020-11-23T07:58:07.681Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awsicat-dev-163110-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storageawsicat"
+      },
+      "lastPushDirHash": "/Ag5Di60ZGGUu2fYWGex+nvJyE8="
+    }
+  }
+}
