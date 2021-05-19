@@ -1,8 +1,23 @@
 {
-    "hosting": {
-        "amplifyhosting": {
-            "service": "amplifyhosting",
-            "type": "cicd"
-        }
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "type": "cicd",
+      "lastPushTimeStamp": "2021-05-19T11:51:04.740Z"
     }
+  },
+  "auth": {
+    "projectmentoring2287dad5": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "mentoringauth": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
 }

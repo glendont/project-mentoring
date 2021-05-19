@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-projectmentoring-dev-190958-unauthRole",
       "StackName": "amplify-projectmentoring-dev-190958",
       "StackId": "arn:aws:cloudformation:us-east-1:891048848327:stack/amplify-projectmentoring-dev-190958/c2cec980-b892-11eb-bc3d-0ae9b001be19",
-      "AmplifyAppId": "dwv1qet534ox5"
+      "AmplifyAppId": "dwv1qet534ox5",
+      "AuthTriggerTemplateURL": ""
     }
   },
   "hosting": {
@@ -17,6 +18,45 @@
       "service": "amplifyhosting",
       "type": "cicd",
       "lastPushTimeStamp": "2021-05-19T11:51:04.740Z"
+    }
+  },
+  "auth": {
+    "projectmentoring2287dad5": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projectmentoring-dev-190958-deployment/amplify-cfn-templates/auth/projectmentoring2287dad5-cloudformation-template.yml",
+        "logicalId": "authprojectmentoring2287dad5"
+      },
+      "lastPushTimeStamp": "2021-05-19T16:33:13.188Z",
+      "output": {
+        "UserPoolId": "us-east-1_7E4Qhjhd7",
+        "AppClientIDWeb": "5keu3ikis219ll7jr4jjk1feqk",
+        "AppClientID": "430e98uvpfk3e38fds2h3ge25v",
+        "IdentityPoolId": "us-east-1:aa060705-f945-4d6c-ae82-787726cf7ac4",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:891048848327:userpool/us-east-1_7E4Qhjhd7",
+        "IdentityPoolName": "projectmentoring2287dad5_identitypool_2287dad5__dev",
+        "UserPoolName": "projectmentoring2287dad5_userpool_2287dad5"
+      },
+      "lastPushDirHash": "cNijwFj1ii9vfKfabNQDvWbGQS0="
+    }
+  },
+  "storage": {
+    "mentoringauth": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projectmentoring-dev-190958-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storagementoringauth"
+      },
+      "lastPushTimeStamp": "2021-05-19T16:33:13.188Z",
+      "output": {
+        "BucketName": "mentor-mentee-matching-bucket190958-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "iCRgQ2zGpzmdivJcZWbRshmesio="
     }
   }
 }

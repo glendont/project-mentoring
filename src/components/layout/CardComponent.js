@@ -15,7 +15,6 @@ import Spinner from "react-bootstrap/Spinner"
 import  { Analytics }  from "aws-amplify"
 
 const CardComponent = () => {
-
     var count = 0
     const [isLoading, setisLoading] = useState(false)
     const [downloadReady, setdownloadReady] = useState(false)
@@ -31,8 +30,9 @@ const CardComponent = () => {
 
     const handleFileChange=e=>{
         const file = e.target.files[0]
-        if (file.type==="application/pdf" || file.type==="application/vnd.openxmlformats-officedocument.wordprocessingml.document" ) {
-        setprofileState({
+        console.log("File", file.type)
+        if (file.type==="application/xlsx" || file.type==="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ) {
+          setprofileState({
           fileUrl:URL.createObjectURL(file),
           file,
           filename:file.name,
@@ -48,7 +48,8 @@ const CardComponent = () => {
       
     const onDrop = useCallback(e => {
         const file = e[0];
-        if (file.type==="application/pdf" || file.type==="application/vnd.openxmlformats-officedocument.wordprocessingml.document" ) {
+        console.log("File", file.type)
+        if (file.type==="application/xlsx" || file.type==="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ) {
         console.log(file)
         console.log(file.type)
         setprofileState({
@@ -136,9 +137,9 @@ if (downloadReady===true) {
       console.log("Filename:", profileState.filename)
       var reportName = "output/"+profileState.filename
       console.log(reportName)
-      Storage.get(reportName, { download: false })
+      Storage.get(reportName, { download: true })
       .then((data)=>{
-        console.log(data)
+        console.log("Downloaded Data: ", data)
         window.open(data)
       })
       .catch(err=>{
@@ -150,7 +151,6 @@ if (downloadReady===true) {
         const interval = setInterval(() => {
             console.log(fileUploaded)
             if (fileUploaded===true){
-        console.log("run")
         var reportName = "output/"+profileState.filename
             Storage.list('output/',{level :'public'})
             .then(result => {
@@ -239,7 +239,7 @@ const ComponentMethod = () => {
                 {invalidFiletype ? (
                     <>
                     <Col xl={3}></Col>
-                    <Col xl={6}> <p>  Invalid File Type! <br/> Current supported file types: docx & pdf   </p> </Col>
+                    <Col xl={6}> <p>  Invalid File Type! <br/> Current supported file types: xlsx   </p> </Col>
                     <Col xl={3}></Col>
                    
                     </> 
@@ -356,7 +356,7 @@ console.log("Get Props 2:", getRootProps)
     </div> 
             </Card.Body>
 
-            <Card.Footer classsemName="text-muted" style={{backgroundColor:"#526571"}}>
+            <Card.Footer className="text-muted" style={{backgroundColor:"#526571"}}>
                 <Row> 
                 <Col xl={2}>{isLoadingMethod()}</Col> 
                 <Col xl={8}></Col>
