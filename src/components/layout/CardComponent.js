@@ -137,7 +137,7 @@ if (downloadReady===true) {
       console.log("Filename:", profileState.filename)
       var reportName = "output/"+profileState.filename
       console.log(reportName)
-      Storage.get(reportName, { download: true })
+      Storage.get(reportName, { download: false })
       .then((data)=>{
         console.log("Downloaded Data: ", data)
         window.open(data)
