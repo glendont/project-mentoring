@@ -342,8 +342,8 @@ console.log("Get Props 2:", getRootProps)
                 </Row>
                 <Row style={{marginTop:"13px", fontSize:"14px"}}>
                 <Col>1) Upload Files </Col>
-                <Col>2) Annotation Algorithm Runs</Col>
-                <Col>3) Download Audit Report</Col>
+                <Col>2) Matching Algorithm Runs</Col>
+                <Col>3) Download Mentor-Mentee Mappings</Col>
                 </Row>
             </Card.Header>
             <Card.Body style={{backgroundColor:"#526571", height:"500px", padding:"0%"}}>
