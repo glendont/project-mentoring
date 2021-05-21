@@ -22,7 +22,6 @@ import {Link} from "react-scroll"
 
 const ScrollLink = Scroll.ScrollLink
 
-
 const useStyles = makeStyles({
     table: {
       minWidth: 300,
@@ -80,10 +79,10 @@ const About = () => {
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: How does the tool work? </p> </b> </Row>
 
         <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 1: Through the landing page of the Mentoring Circle, click on "Add Files" to upload your data file in the format denoted in section "Data Format and Requirements".</p></Row>
-        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 2: Click "Upload" </p></Row>
-        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 3: The matching algorithm will be triggered automatically </p></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 2: Click "Upload".</p></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 3: The matching algorithm will be triggered automatically.</p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 4: When ready, a "Download" button would appear. Click on the button to download your results.</p></Row>
-        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 5: The results will be downloaded to your local machine</p></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 5: The results will be downloaded to your local machine.</p></Row>
         
         
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: How does the matching algorithm work?</p> </b> </Row>
@@ -92,7 +91,7 @@ const About = () => {
         
         <Row id="architecture"> <b> <p style={{fontSize:"20px"}}>Data Format and Requirements</p> </b></Row>
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: What is the required format for the input data? </p> </b> </Row>
-        <Row> <p style={{fontFamily:"Amazon Ember"}}> The tool requires the user to input an Excel spreadsheet with the file extension of .xlsx. Within the Excel spreadsheet, there should be 2 separate sheets - 1) Mentor and 2) Mentee that contains the neccessary information of the candidates to perform the matching. A template for the input data can be downloaded <a href="/"> here</a>.  </p></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}> The tool requires the user to input an Excel spreadsheet with the file extension of .xlsx. Within the Excel spreadsheet, there should be 2 separate sheets - 1) Mentor and 2) Mentee that contains the neccessary information of the candidates to perform the matching. A template for the input data can be downloaded <a href="https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx"> here</a>.  </p></Row>
 
         <Row id="architecture"> <b> <p style={{fontSize:"20px"}}>Architecture</p> </b></Row>
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: What is the Architecture Diagram of the Mentoring Circle? </p> </b> </Row>
