@@ -5,7 +5,7 @@ import CardComponent from "../layout/CardComponent";
 const Home = () => {
     return (
         <> 
-        <div style={{height:"1000px", backgroundColor:""}}> 
+        <div style={{height:"1200px", backgroundColor:""}}> 
         <CardComponent/>
         </div>
         </> 

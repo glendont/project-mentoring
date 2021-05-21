@@ -443,7 +443,7 @@ const removeFile = () => {
                 <Col>3) Download Mentor-Mentee Mappings</Col>
                 </Row>
             </Card.Header>
-            <Card.Body style={{backgroundColor:"#526571", height:"700px", padding:"0%"}}>
+            <Card.Body style={{backgroundColor:"#526571", height:"600px", padding:"0%"}}>
           <div> 
               <div {...getRootProps()} >
                   <input {...getInputProps()} />
