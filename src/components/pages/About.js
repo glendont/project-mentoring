@@ -109,8 +109,6 @@ const About = () => {
        <Col md={2}> </Col>
         </Row>
         </div> 
-
-
     )
 }
 

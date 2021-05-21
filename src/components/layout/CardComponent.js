@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useEffect} from "react"
+import React, {useCallback, useState, useEffect, Fragment} from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -12,10 +12,20 @@ import {ImCross} from "react-icons/im"
 import {GrShare} from "react-icons/gr"
 import {RiShareBoxLine} from "react-icons/ri"
 import Spinner from "react-bootstrap/Spinner"
-import  { Analytics }  from "aws-amplify"
+import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
+
+// import RequirementChecklist from "./RequirementChecklist"
+
+import { makeStyles,withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Checkbox from '@material-ui/core/Checkbox';
+import Avatar from '@material-ui/core/Avatar';
 
 const CardComponent = () => {
-    var count = 0
     const [isLoading, setisLoading] = useState(false)
     const [downloadReady, setdownloadReady] = useState(false)
     const [fileUploaded, setfileUploaded] = useState(false)
@@ -27,6 +37,94 @@ const CardComponent = () => {
         filename:'init',
         filesize:'init',
       })
+    const [reqArray,setReqArray]=useState([0,1,2,3,4,5])
+    const [checked, setChecked] = useState([0,1]);
+
+    const RequirementChecklist = () => {
+    const useStyles = makeStyles((theme) => ({
+    root: {
+    width: '100%',
+    maxWidth: 1000,
+    color:"white",
+    backgroundColor:"#4E6573",
+    },
+}));
+
+const CustomCheckBox = withStyles({
+  root: {
+    color: "#DCEEF8",
+    '&$checked': {
+      color: "#F4F5F6",
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+    const classes = useStyles();
+    const handleToggle = (value) => () => {
+        const currentIndex = checked.indexOf(value);
+        const newChecked = [...checked];
+        if (currentIndex === -1) {
+        newChecked.push(value);
+        } else {
+        newChecked.splice(currentIndex, 1);
+        }
+        setChecked(newChecked);
+    };
+
+    if (fileLocalStorage===false){
+      return(
+        <>
+        </> 
+      )
+    } else {
+      return (
+        <Container> 
+        <List dense className={classes.root}>
+        {[{"key":0,
+          "desc":"Mentees having at most 3 Mentors"
+          },
+          {"key":1,
+          "desc":"Mentors having at most 3 Mentees"
+          },
+          {"key":2,
+          "desc":"Fulfil Internal Transfer Mentorship"
+          },
+          {"key":3,
+          "desc":"Skill  Capabilities Alignment"
+          },
+          {"key":4,
+          "desc":"Female Mentee having at least one Female Mentor"
+          },
+          {"key":5,
+          "desc":"L4/5 Mentee having at least one L5/6 Mentor"}].map((value) => {
+            const labelId = `checkbox-list-secondary-label-${value}`;
+            return (
+            <ListItem key={value.key} button>
+                <ListItemAvatar>
+                {/* <Avatar/> */}
+                <GroupRoundedIcon/>
+                </ListItemAvatar>
+                <ListItemText id={labelId} primary={`${value.desc}`} />
+                <ListItemSecondaryAction>
+                <CustomCheckBox
+                    edge="end"
+                    onChange={handleToggle(value.key)}
+                    checked={checked.indexOf(value.key) !== -1}
+                    inputProps={{ 'aria-labelledby': labelId }}
+                />
+                </ListItemSecondaryAction>
+            </ListItem>
+            );
+            }
+        )
+        }
+      </List>
+      </Container> 
+    );
+    }
+}
+
 
     const handleFileChange=e=>{
         const file = e.target.files[0]
@@ -71,14 +169,12 @@ const CardComponent = () => {
     const saveFile=()=>{
         setisLoading(true)
       var path = "input/"+profileState.filename
+      console.log("Req here: ", checked)
       Storage.put(path, profileState.file)
         .then(()=>{
           console.log("Successfully saved file!")
           setfileUploaded(true);
           setisLoading(false);
-          count=count+1
-          Analytics.record({count:"number of uploads"})
-          console.log("Analytics:", count)
         })
         .catch(err=>{
           console.log("Error uploading file", err)
@@ -167,7 +263,7 @@ if (downloadReady===true) {
             })
             .catch(err => console.log(err));
   }}
-  , 5000);
+  , 10000);
     return () => clearInterval(interval);
 },[fileUploaded]);
 
@@ -175,7 +271,8 @@ if (downloadReady===true) {
 const ComponentMethod = () => {
     if (fileLocalStorage===true) { 
         return (
-            <div>
+ 
+        <div>
             <div style={{backgroundColor:"#DCEEF8",height:"50px",marginTop:"25px", padding:"1%", paddingLeft:"3%", color:"white"}}>  
             <Row style={{fontSize:'13px', color:"black", marginTop:"5px"}}>
             <Col xl={1}> <p style={{float:"left"}}> 1 Files</p> </Col> 
@@ -198,7 +295,8 @@ const ComponentMethod = () => {
             </Row>
             <hr style={{backgroundColor:"white", padding:'-5%'}} />
             </div> 
-            </div>
+        </div>
+
         )
 
     } else if (fileLocalStorage === false && isDragActive === false){
@@ -207,54 +305,55 @@ const ComponentMethod = () => {
             <Row >
             <p className="secondary-text"> To upload a file larger than 160 GB, use the AWS CLI, AWS SDK, or Amazon S3 REST API. Learn more <RiShareBoxLine style={{ marginBottom:"2px"}}/> </p>
             </Row>
+
             <div style={{paddingTop:"6%", color:"white"}}> 
-            <Row>
-            <Col></Col>
-            <Col><IoMdPhotos style={{height:"100px", width:"100px", opacity:"0.6"}}/></Col>
-            <Col></Col>
-            </Row>
+              <Row>
+              <Col></Col>
+              <Col><IoMdPhotos style={{height:"100px", width:"100px", opacity:"0.6"}}/></Col>
+              <Col></Col>
+              </Row>
 
-            <Row>
-            <Col></Col>
-            <Col><h5>Drag and drop files here</h5></Col>
-            <Col></Col>
-            </Row>
+              <Row>
+              <Col></Col>
+              <Col><h5>Drag and drop files here</h5></Col>
+              <Col></Col>
+              </Row>
 
-            <Card.Text>
-            With supporting text below as a natural lead-in to additional content.
-            </Card.Text>
+              <Card.Text>
+              With supporting text below as a natural lead-in to additional content.
+              </Card.Text>
 
-            <Row>
-            <Col></Col>
-            <Col><Button variant="primary" style={{backgroundColor:"#64A8D7",paddingLeft:"2rem", paddingRight:"2rem", border:"none",borderRadius:"0px"}}><b>Add Files</b></Button></Col>
-            <Col></Col>
-            </Row>
+              <Row>
+              <Col></Col>
+              <Col><Button variant="primary" style={{backgroundColor:"#64A8D7",paddingLeft:"2rem", paddingRight:"2rem", border:"none",borderRadius:"0px"}}><b>Add Files</b></Button></Col>
+              <Col></Col>
+              </Row>
 
-            <Row>
-            <Col></Col>
-            <Col>{fileUploadedMethod()}</Col>
-            <Col></Col>
-            </Row>
-            <Row className="text-center">
-                {invalidFiletype ? (
-                    <>
-                    <Col xl={3}></Col>
-                    <Col xl={6}> <p>  Invalid File Type! <br/> Current supported file types: xlsx   </p> </Col>
-                    <Col xl={3}></Col>
-                   
-                    </> 
-                ) : (
-                    <>
-                    </> 
-                )}
-            </Row>
-            </div>
+              <Row>
+              <Col></Col>
+              <Col>{fileUploadedMethod()}</Col>
+              <Col></Col>
+              </Row>
+              <Row className="text-center">
+                  {invalidFiletype ? (
+                      <>
+                      <Col xl={3}></Col>
+                      <Col xl={6}> <p>  Invalid File Type! <br/> Current supported file types: xlsx   </p> </Col>
+                      <Col xl={3}></Col>
+                    
+                      </> 
+                  ) : (
+                      <>
+                      </> 
+                  )}
+              </Row>
+          </div>
             </>
         )
     } else if (fileLocalStorage === false && isDragActive === true) {
         return (
             <>
-                        <Row >
+              <Row >
             <p className="secondary-text"> To upload a file larger than 160 GB, use the AWS CLI, AWS SDK, or Amazon S3 REST API. Learn more <RiShareBoxLine style={{ marginBottom:"2px"}}/> </p>
             </Row>
 <div 
@@ -325,10 +424,8 @@ const removeFile = () => {
       setfileUploaded(false)
 }
 
-console.log("Get Props:", getInputProps)
-console.log("Get Props 2:", getRootProps)
-
-
+// console.log("Get Props:", getInputProps)
+// console.log("Get Props 2:", getRootProps)
 
     return (
         <div style={{padding:"5%"}}>
@@ -346,31 +443,39 @@ console.log("Get Props 2:", getRootProps)
                 <Col>3) Download Mentor-Mentee Mappings</Col>
                 </Row>
             </Card.Header>
-            <Card.Body style={{backgroundColor:"#526571", height:"500px", padding:"0%"}}>
-
-<div> 
-    <div {...getRootProps()} >
-      <input {...getInputProps()} />
-      {ComponentMethod()}
-    </div>         
-    </div> 
-            </Card.Body>
-
-            <Card.Footer className="text-muted" style={{backgroundColor:"#526571"}}>
-                <Row> 
-                <Col xl={2}>{isLoadingMethod()}</Col> 
-                <Col xl={8}></Col>
-                <Col xl={2}> 
-                {downloadReadyMethod()}
-                </Col>
+            <Card.Body style={{backgroundColor:"#526571", height:"700px", padding:"0%"}}>
+          <div> 
+              <div {...getRootProps()} >
+                  <input {...getInputProps()} />
+                       {ComponentMethod()}
+              </div>
+                <div style={{marginTop:"12vh",backgroundColor:"#4E6573"}}>
+                  <div> 
+                <Container> 
+                <Row>
+                <Col xl={2}></Col> 
+                <Col xl={8}> {RequirementChecklist()}</Col> 
+                <Col xl={2}></Col> 
                 </Row> 
-                {/* 2 days ago */}
-            </Card.Footer>
+               </Container> 
+                </div>
+                </div>     
+          </div> 
+            </Card.Body>
+                {/* <Card.Footer className="text-muted" style={{backgroundColor:"yellow"}}> */}
+                <Card.Footer className="text-muted" style={{backgroundColor:"#526571"}}>
+                    <Row> 
+                    <Col xl={2}>{isLoadingMethod()}</Col> 
+                    <Col xl={8}></Col>
+                    <Col xl={2}> 
+                    {downloadReadyMethod()}
+                    </Col>
+                    </Row> 
+                </Card.Footer>
             </Card>
             </Container>
-
-
-        </div>
+      
+      </div>
     )
 
 }
