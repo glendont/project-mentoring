@@ -9,7 +9,9 @@ const awsmobile = {
     "aws_user_pools_web_client_id": "5keu3ikis219ll7jr4jjk1feqk",
     "oauth": {},
     "aws_user_files_s3_bucket": "mentor-mentee-matching-bucket190958-dev",
-    "aws_user_files_s3_bucket_region": "us-east-1"
+    "aws_user_files_s3_bucket_region": "us-east-1",
+    "aws_mobile_analytics_app_id": "e536884a49a649078bccc0de59c5c1d5",
+    "aws_mobile_analytics_app_region": "us-east-1"
 };
 
 

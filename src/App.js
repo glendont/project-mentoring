@@ -14,7 +14,7 @@ Amplify.configure(awsconfig);
 const analyticsConfig = {
   AWSPinpoint: {
         // Amazon Pinpoint App Client ID
-        appId: '92b9767edd52490eacfcec33d579485e',
+        appId: 'e536884a49a649078bccc0de59c5c1d5',
         // Amazon service region
         region: 'us-east-1',
         mandatorySignIn: false,

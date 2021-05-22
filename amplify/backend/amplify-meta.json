@@ -30,7 +30,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-projectmentoring-dev-190958-deployment/amplify-cfn-templates/auth/projectmentoring2287dad5-cloudformation-template.yml",
         "logicalId": "authprojectmentoring2287dad5"
       },
-      "lastPushTimeStamp": "2021-05-19T16:33:13.188Z",
+      "lastPushTimeStamp": "2021-05-22T10:12:13.242Z",
       "output": {
         "UserPoolId": "us-east-1_7E4Qhjhd7",
         "AppClientIDWeb": "5keu3ikis219ll7jr4jjk1feqk",
@@ -51,12 +51,29 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-projectmentoring-dev-190958-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
         "logicalId": "storagementoringauth"
       },
-      "lastPushTimeStamp": "2021-05-19T16:33:13.188Z",
+      "lastPushTimeStamp": "2021-05-22T10:12:13.244Z",
       "output": {
         "BucketName": "mentor-mentee-matching-bucket190958-dev",
         "Region": "us-east-1"
       },
       "lastPushDirHash": "iCRgQ2zGpzmdivJcZWbRshmesio="
+    }
+  },
+  "analytics": {
+    "projectmentoringpinpoint": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projectmentoring-dev-190958-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+        "logicalId": "analyticsprojectmentoringpinpoint"
+      },
+      "lastPushTimeStamp": "2021-05-22T10:12:13.248Z",
+      "output": {
+        "appName": "projectmentoringpinpoint-dev",
+        "Region": "us-east-1",
+        "Id": "e536884a49a649078bccc0de59c5c1d5"
+      },
+      "lastPushDirHash": "5gfCZpcidQP8DVtUZpnSLfu+Ftw="
     }
   }
 }
