@@ -5,7 +5,7 @@ import CardComponent from "../layout/CardComponent";
 const Home = () => {
     return (
         <> 
-        <div style={{height:"1200px", backgroundColor:""}}> 
+        <div style={{height:"1200px", backgroundColor:"#F2F3F3"}}> 
         <CardComponent/>
         </div>
         </> 
@@ -13,5 +13,4 @@ const Home = () => {
 
     )
 }
-
 export default Home; 

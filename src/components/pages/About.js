@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Background from "../img/hive_background.png"
-import ArchitectureDiagram from "../img/icat_ad.png"
+import ArchitectureDiagram from "../img/mentoring_ad.png"
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -95,7 +95,7 @@ const About = () => {
 
         <Row id="architecture"> <b> <p style={{fontSize:"20px"}}>Architecture</p> </b></Row>
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: What is the Architecture Diagram of the Mentoring Circle? </p> </b> </Row>
-        <Row> <img src={ArchitectureDiagram} height="390px"/> </Row>
+        <Row> <img src={ArchitectureDiagram} height="480px"/> </Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> The tool utilises the following AWS Services: AWS Amplify, S3, Cognito and Lambda. </p></Row>
        
 

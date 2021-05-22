@@ -44,7 +44,7 @@ const CardComponent = () => {
     const useStyles = makeStyles((theme) => ({
     root: {
     width: '100%',
-    maxWidth: 1000,
+    maxWidth: 900,
     color:"white",
     backgroundColor:"#4E6573",
     },
@@ -79,7 +79,10 @@ const CustomCheckBox = withStyles({
       )
     } else {
       return (
-        <Container> 
+        <Container style={{color:"white"}}> 
+          <>
+          <p> Indicate the conditions that have to be met during the matching process </p>
+          </>
         <List dense className={classes.root}>
         {[{"key":0,
           "desc":"Mentees having at most 3 Mentors"
@@ -470,7 +473,7 @@ const removeFile = () => {
                   <input {...getInputProps()} />
                        {ComponentMethod()}
               </div>
-                <div style={{marginTop:"12vh",backgroundColor:"#4E6573"}}>
+                <div style={{marginTop:"10vh",backgroundColor:"#4E6573"}}>
                   <div> 
                 <Container> 
                 <Row>
