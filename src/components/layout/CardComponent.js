@@ -38,7 +38,8 @@ const CardComponent = () => {
         filesize:'init',
       })
     const [reqArray,setReqArray]=useState([0,1,2,3,4,5])
-    const [checked, setChecked] = useState([0,1]);
+    const [checked, setChecked] = useState([0,1,2,3]);
+    const [error, setError]=useState(false)
 
     const RequirementChecklist = () => {
     const useStyles = makeStyles((theme) => ({
@@ -78,11 +79,17 @@ const CustomCheckBox = withStyles({
         </> 
       )
     } else {
-      return (
+      return ( 
+      // <div style={{backgroundColor:"red"}}>
+      <div> 
+        <div>
+        <Row> 
+        <Col xl={10}><p style={{color:"white", marginLeft:"-315px", fontSize:"14px"}}> Indicate the conditions that have to be met during the matching process </p></Col>
+        <Col xl={1}> </Col>
+        </Row>
+      </div>
         <Container style={{color:"white"}}> 
-          <>
-          <p> Indicate the conditions that have to be met during the matching process </p>
-          </>
+
         <List dense className={classes.root}>
         {[{"key":0,
           "desc":"Mentees having at most 3 Mentors"
@@ -91,16 +98,19 @@ const CustomCheckBox = withStyles({
           "desc":"Mentors having at most 3 Mentees"
           },
           {"key":2,
-          "desc":"Fulfil Internal Transfer Mentorship"
+          "desc":"Mentors and mentees must be from different teams/chain of command"
           },
           {"key":3,
-          "desc":"Skill  Capabilities Alignment"
+          "desc":"Fulfil Internal Transfer Mentorship"
           },
           {"key":4,
-          "desc":"Female Mentee having at least one Female Mentor"
+          "desc":"Skill  Capabilities Alignment"
           },
           {"key":5,
-          "desc":"L4/5 Mentee having at least one L5/6 Mentor"}].map((value) => {
+          "desc":"Female Mentees having at least one Female Mentor"
+          },
+          {"key":6,
+          "desc":"L4/5 Mentees having at least one L5/6 Mentor"}].map((value) => {
             const labelId = `checkbox-list-secondary-label-${value}`;
             return (
             <ListItem key={value.key} button>
@@ -124,6 +134,7 @@ const CustomCheckBox = withStyles({
         }
       </List>
       </Container> 
+      </div> 
     );
     }
 }
@@ -174,7 +185,7 @@ const CustomCheckBox = withStyles({
       const sorted_checked = checked.sort()
       console.log("Sorted array: ", sorted_checked)
 
-      if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4) && sorted_checked.includes(5)) {
+      if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4) && sorted_checked.includes(5) && sorted_checked.includes(6) ) {
         var path = "input/strictest/"+profileState.filename
         console.log(path)
         Storage.put(path, profileState.file)
@@ -187,7 +198,7 @@ const CustomCheckBox = withStyles({
           console.log("Error uploading file", err)
         })
       } 
-      else if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4)) { 
+      else if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4) && sorted_checked.includes(5) ) { 
         var path = "input/allowsameteams/"+profileState.filename
         console.log(path)
         Storage.put(path, profileState.file)
@@ -201,7 +212,7 @@ const CustomCheckBox = withStyles({
         })
       }
       else {
-        console("Nothing matched")
+        console.log("Nothing matched")
       }
     }
 
@@ -467,7 +478,7 @@ const removeFile = () => {
                 <Col>3) Download Mentor-Mentee Mappings</Col>
                 </Row>
             </Card.Header>
-            <Card.Body style={{backgroundColor:"#526571", height:"600px", padding:"0%"}}>
+            <Card.Body style={{backgroundColor:"#526571", height:"650px", padding:"0%"}}>
           <div> 
               <div {...getRootProps()} >
                   <input {...getInputProps()} />
@@ -477,9 +488,9 @@ const removeFile = () => {
                   <div> 
                 <Container> 
                 <Row>
-                <Col xl={2}></Col> 
-                <Col xl={8}> {RequirementChecklist()}</Col> 
-                <Col xl={2}></Col> 
+                <Col xl={1}></Col> 
+                <Col xl={10}> {RequirementChecklist()}</Col> 
+                <Col xl={1}></Col> 
                 </Row> 
                </Container> 
                 </div>
