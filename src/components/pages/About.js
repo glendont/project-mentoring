@@ -96,7 +96,7 @@ const About = () => {
 
         <Row id="architecture"> <b> <p style={{fontSize:"20px"}}>Architecture</p> </b></Row>
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: What is the Architecture Diagram of the Mentoring Circle? </p> </b> </Row>
-        <Row> <img src={ArchitectureDiagram} height="480px"/> </Row>
+        <Row> <img src={ArchitectureDiagram} height="420px"/> </Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> The tool utilises the following AWS Services: AWS Amplify, S3, Cognito and Lambda. </p></Row>
        
 

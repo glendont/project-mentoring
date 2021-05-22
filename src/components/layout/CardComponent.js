@@ -84,8 +84,8 @@ const CustomCheckBox = withStyles({
       <div> 
         <div>
         <Row> 
-        <Col xl={10}><p style={{color:"white", marginLeft:"-315px", fontSize:"14px"}}> Indicate the conditions that have to be met during the matching process </p></Col>
-        <Col xl={1}> </Col>
+        <Col xl={10}><p style={{color:"white", marginLeft:"-315px", fontSize:"15px"}}> Indicate the conditions that have to be met during the matching process </p></Col>
+        <Col xl={2}> </Col>
         </Row>
       </div>
         <Container style={{color:"white"}}> 
@@ -129,10 +129,15 @@ const CustomCheckBox = withStyles({
                 </ListItemSecondaryAction>
             </ListItem>
             );
-            }
+          }
         )
         }
       </List>
+      <Row>
+            <Col xl={5}> </Col>
+            <Col xl={7}><p style={{color:"white", fontSize:"12px", opacity:'0.65', float:"right", marginRight:'20px'}}> Note: Conditions that are not checked will be fulfiled on a best-effort basis </p></Col>
+            {/* <Col xl={2}> </Col> */}
+      </Row>
       </Container> 
       </div> 
     );
@@ -212,7 +217,18 @@ const CustomCheckBox = withStyles({
         })
       }
       else {
-        console.log("Nothing matched")
+        console.log("Default")
+        var path = "input/allowsameteams/"+profileState.filename
+        console.log(path)
+        Storage.put(path, profileState.file)
+        .then(()=>{
+          console.log("Successfully saved file!")
+          setfileUploaded(true);
+          setisLoading(false);
+        })
+        .catch(err=>{
+          console.log("Error uploading file", err)
+        })
       }
     }
 
@@ -350,7 +366,7 @@ const ComponentMethod = () => {
 
               <Row>
               <Col></Col>
-              <Col><h5>Drag and drop files here</h5></Col>
+              <Col><h5>Drag and drop data here</h5></Col>
               <Col></Col>
               </Row>
 
@@ -360,7 +376,7 @@ const ComponentMethod = () => {
 
               <Row>
               <Col></Col>
-              <Col><Button variant="primary" style={{backgroundColor:"#64A8D7",paddingLeft:"2rem", paddingRight:"2rem", border:"none",borderRadius:"0px"}}><b>Add Files</b></Button></Col>
+              <Col><Button variant="primary" style={{backgroundColor:"#64A8D7",paddingLeft:"2rem", paddingRight:"2rem", border:"none",borderRadius:"0px"}}><b>Add Data</b></Button></Col>
               <Col></Col>
               </Row>
 
@@ -427,7 +443,7 @@ const ComponentMethod = () => {
 
             <Row>
             <Col></Col>
-            <Col><h5>Drag and drop files here</h5></Col>
+            <Col><h5>Drag and drop data here</h5></Col>
             <Col></Col>
             </Row>
             <Card.Text>
@@ -435,7 +451,7 @@ const ComponentMethod = () => {
             </Card.Text>
             <Row>
             <Col></Col>
-            <Col><Button variant="primary" style={{backgroundColor:"#64A8D7",paddingLeft:"2rem", paddingRight:"2rem", border:"none",borderRadius:"0px"}}><b>Add Files</b></Button></Col>
+            <Col><Button variant="primary" style={{backgroundColor:"#64A8D7",paddingLeft:"2rem", paddingRight:"2rem", border:"none",borderRadius:"0px"}}><b>Add Data</b></Button></Col>
             <Col></Col>
             </Row>
             </div>

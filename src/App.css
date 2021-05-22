@@ -12,7 +12,7 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
-  --navy-color: #1A3752;
+  --navy-color: #232F3E;
   --orange-color: #FF7B59;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #232F3E;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@
 }
 
 .navbar{ 
-  background-color:#1A3752;
+  background-color:#232F3E;
   font-family:Roboto;
   font-size:20px;
   color:white;
@@ -133,6 +133,3 @@ text-decoration: none;
    
   }
 
-.MuiListItemSecondaryAction-root	{
-
-}

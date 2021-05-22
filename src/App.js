@@ -35,7 +35,8 @@ const App = () => {
       </Switch>
       <Footer/> 
     </Router>
-  </Fragment>
+
+    </Fragment>
   );
 }
 export default App;;
