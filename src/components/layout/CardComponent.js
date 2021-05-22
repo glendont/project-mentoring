@@ -473,7 +473,7 @@ const removeFile = () => {
                 <Col></Col>
                 </Row>
                 <Row style={{marginTop:"13px", fontSize:"14px"}}>
-                <Col>1) Upload Files </Col>
+                <Col>1) Upload Mentor Mentee Data</Col>
                 <Col>2) Matching Algorithm Runs</Col>
                 <Col>3) Download Mentor-Mentee Mappings</Col>
                 </Row>
