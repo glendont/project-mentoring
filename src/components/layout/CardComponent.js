@@ -168,9 +168,26 @@ const CustomCheckBox = withStyles({
 
     const saveFile=()=>{
         setisLoading(true)
-      var path = "input/"+profileState.filename
-      console.log("Req here: ", checked)
-      Storage.put(path, profileState.file)
+      const sorted_checked = checked.sort()
+      console.log("Sorted array: ", sorted_checked)
+
+      if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4) && sorted_checked.includes(5)) {
+        var path = "input/strictest/"+profileState.filename
+        console.log(path)
+        Storage.put(path, profileState.file)
+        .then(()=>{
+          console.log("Successfully saved file!")
+          setfileUploaded(true);
+          setisLoading(false);
+        })
+        .catch(err=>{
+          console.log("Error uploading file", err)
+        })
+      } 
+      else if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4)) { 
+        var path = "input/allowsameteams/"+profileState.filename
+        console.log(path)
+        Storage.put(path, profileState.file)
         .then(()=>{
           console.log("Successfully saved file!")
           setfileUploaded(true);
@@ -180,6 +197,10 @@ const CustomCheckBox = withStyles({
           console.log("Error uploading file", err)
         })
       }
+      else {
+        console("Nothing matched")
+      }
+    }
 
       const isLoadingMethod = () => {
         if (fileLocalStorage === true && isLoading===true) {
