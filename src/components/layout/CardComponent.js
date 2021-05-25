@@ -13,6 +13,7 @@ import {GrShare} from "react-icons/gr"
 import {RiShareBoxLine} from "react-icons/ri"
 import Spinner from "react-bootstrap/Spinner"
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 // import RequirementChecklist from "./RequirementChecklist"
 
@@ -40,6 +41,8 @@ const CardComponent = () => {
     const [reqArray,setReqArray]=useState([0,1,2,3,4,5])
     const [checked, setChecked] = useState([0,1,2,3]);
     const [error, setError]=useState(false)
+    const [counter,setCounter]=useState(0)
+    const [startTime, setStartTime] = useState(undefined)
 
     const RequirementChecklist = () => {
     const useStyles = makeStyles((theme) => ({
@@ -157,6 +160,7 @@ const CustomCheckBox = withStyles({
         });
         setfileLocalStorage(true)
         setinvalidFiletype(false)
+        setError(false)
         } else {
             console.log("Invalid file type")
             setinvalidFiletype(true) 
@@ -177,6 +181,7 @@ const CustomCheckBox = withStyles({
           });
           setfileLocalStorage(true)
           setinvalidFiletype(false)
+          setError(false)
         } else {
             console.log("Invalid file type")
             setinvalidFiletype(true)
@@ -198,9 +203,13 @@ const CustomCheckBox = withStyles({
           console.log("Successfully saved file!")
           setfileUploaded(true);
           setisLoading(false);
+          setStartTime(new Date().getTime()) 
+           console.log(startTime)
         })
         .catch(err=>{
           console.log("Error uploading file", err)
+          setStartTime(new Date().getTime()) 
+          console.log(startTime)
         })
       } 
       else if (sorted_checked.includes(0) && sorted_checked.includes(1) && sorted_checked.includes(2) && sorted_checked.includes(3) && sorted_checked.includes(4) && sorted_checked.includes(5) ) { 
@@ -211,9 +220,13 @@ const CustomCheckBox = withStyles({
           console.log("Successfully saved file!")
           setfileUploaded(true);
           setisLoading(false);
+          setStartTime(new Date().getTime()) 
+           console.log(startTime)
         })
         .catch(err=>{
           console.log("Error uploading file", err)
+          setStartTime(new Date().getTime()) 
+          console.log(startTime)
         })
       }
       else {
@@ -225,9 +238,13 @@ const CustomCheckBox = withStyles({
           console.log("Successfully saved file!")
           setfileUploaded(true);
           setisLoading(false);
+          setStartTime(new Date().getTime()) 
+          console.log(startTime)
         })
         .catch(err=>{
           console.log("Error uploading file", err)
+          setStartTime(new Date().getTime()) 
+          console.log(startTime)
         })
       }
     }
@@ -296,6 +313,20 @@ if (downloadReady===true) {
 
     useEffect(() => {
         const interval = setInterval(() => {
+          
+          if(typeof startTime!=="undefined"){
+            console.log("Inside undefined if else: ", startTime)
+            if (new Date().getTime() - startTime > 15000){
+              clearInterval(interval)      
+              setError(true)
+              setisLoading(false)
+              setfileLocalStorage(false);
+              setinvalidFiletype(false);
+              setdownloadReady(false);
+              setfileUploaded(false)
+            }
+          }
+
             console.log(fileUploaded)
             if (fileUploaded===true){
         var reportName = "output/"+profileState.filename
@@ -314,9 +345,9 @@ if (downloadReady===true) {
             })
             .catch(err => console.log(err));
   }}
-  , 10000);
+  , 1000);
     return () => clearInterval(interval);
-},[fileUploaded]);
+},[fileUploaded,startTime]);
 
 
 const ComponentMethod = () => {
@@ -508,6 +539,8 @@ const removeFile = () => {
                 <Col xl={10}> {RequirementChecklist()}</Col> 
                 <Col xl={1}></Col> 
                 </Row> 
+
+
                </Container> 
                 </div>
                 </div>     
@@ -517,7 +550,13 @@ const removeFile = () => {
                 <Card.Footer className="text-muted" style={{backgroundColor:"#526571"}}>
                     <Row> 
                     <Col xl={2}>{isLoadingMethod()}</Col> 
-                    <Col xl={8}></Col>
+                    <Col xl={8}>
+                      { (error) ? (
+                        <center> <Alert variant="filled" severity="error" style={{color:"white", opacity:'0.75', height:"95%", width:"85%",left:"50%"}}>There is an error during the matching process, please retry or reach out to thaiwg@ </Alert> </center> 
+                      ) :<> </>
+                    }
+
+                    </Col>
                     <Col xl={2}> 
                     {downloadReadyMethod()}
                     </Col>
