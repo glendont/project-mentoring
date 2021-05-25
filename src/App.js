@@ -39,4 +39,4 @@ const App = () => {
     </Fragment>
   );
 }
-export default App;;
+export default withAuthenticator(App);
