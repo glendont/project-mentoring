@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./components/pages/Home"
 import About from "./components/pages/About"
-import Footer from "./components/layout/Footer"
+import NewFooter from "./components/layout/NewFooter"
 import NavigationBar from "./components/layout/NavigationBar";
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import Amplify, { Analytics } from 'aws-amplify';
@@ -33,7 +33,7 @@ const App = () => {
          <Route exact path="/about" component={About} />
         <Route component={Home} />
       </Switch>
-      <Footer/> 
+      <NewFooter/> 
     </Router>
 
     </Fragment>
