@@ -9,6 +9,7 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Auth } from 'aws-amplify';
 
 
 const Footer = () => {
@@ -50,6 +51,13 @@ const Footer = () => {
                 <li>
                   {" "}
                   <a href="/">Research and Innovation</a>
+                </li>
+                <li>
+                  {" "}
+                  <a href="/" onClick={()=>{
+                    Auth.signOut();
+                    window.location.reload(false);
+                  }}>Sign Out</a>
                 </li>
               </ul>
             </div>
