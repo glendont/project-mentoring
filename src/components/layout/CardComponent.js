@@ -234,7 +234,7 @@ const CustomCheckBox = withStyles({
     )
         } else if (fileLocalStorage === true && isLoading===false) {
     return (
-        <Button variant="primary" style={{backgroundColor:"#D6D8D8",paddingLeft:"2rem", paddingRight:"2rem", border:"none", borderRadius:"0px"}} onClick={saveFile}>Upload</Button>
+        <Button variant="primary" style={{backgroundColor:"#D6D8D8",paddingLeft:"2rem", paddingRight:"2rem", border:"none", borderRadius:"0px"}} onClick={saveFile}>Match</Button>
     )
         } else {
             return (
