@@ -40,6 +40,7 @@ const NewFooter = () => {
           .then(function(response) {
             console.log(response);
             setMessage("")
+            alert("Thanks for your feedback!");
           })
           .catch(function(error) {
             console.log(error);
@@ -93,8 +94,6 @@ const NewFooter = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-
-            
 
             <Col> <p style={{float:"right", fontSize:"11px"}}> &copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. </p></Col>
             </div>

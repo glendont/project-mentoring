@@ -38,8 +38,8 @@ const CardComponent = () => {
         filename:'init',
         filesize:'init',
       })
-      
-    const [checked, setChecked] = useState([0,1,2,3]);
+
+    const [checked, setChecked] = useState([2,3]);
     const [error, setError]=useState(false)
     const [counter,setCounter]=useState(0)
     const [startTime, setStartTime] = useState(undefined)
@@ -94,13 +94,7 @@ const CustomCheckBox = withStyles({
         <Container style={{color:"white"}}> 
 
         <List dense className={classes.root}>
-        {[{"key":0,
-          "desc":"Mentees having at most 3 Mentors"
-          },
-          {"key":1,
-          "desc":"Mentors having at most 3 Mentees"
-          },
-          {"key":2,
+        {[{"key":2,
           "desc":"Mentors and mentees must be from different teams"
           },
           {"key":3,
@@ -354,8 +348,10 @@ const ComponentMethod = () => {
             </Row>
             <hr style={{backgroundColor:"white", padding:'-5%'}} />
             <Row>
-                <Col xl={1}> <AiOutlineFileWord style={{height:"50px"}}/></Col>
-                <Col xl={10}> <Row> <p style={{float:"left"}}> {profileState.filename} </p> </Row> <Row style={{float:"left", marginTop:'-20px'}}> {profileState.filesize} KB </Row> </Col>
+                <Col xl={1} > <AiOutlineFileWord style={{height:"50px"}}/></Col>
+                <Col xl={10} > <Row> <p style={{float:"left"}}> {profileState.filename} </p> </Row> 
+                <Row style={{float:"left", marginTop:'-20px'}}> {profileState.filesize} KB </Row> </Col>
+
                 <Col xl={1} onClick={removeFile}> <ImCross style={{marginTop:"10px", marginRight:"70px",height:"18px"}}/> </Col>
             </Row>
             <hr style={{backgroundColor:"white", padding:'-5%'}} />
@@ -508,13 +504,13 @@ const removeFile = () => {
                 <Col>3) Download Mentor-Mentee Mappings</Col>
                 </Row>
             </Card.Header>
-            <Card.Body style={{backgroundColor:"#526571", height:"660px", padding:"0%"}}>
+            <Card.Body style={{backgroundColor:"#526571", height:"650px", padding:"0%"}}>
           <div> 
               <div {...getRootProps()} >
                   <input {...getInputProps()} />
                        {ComponentMethod()}
               </div>
-                <div style={{marginTop:"10vh",backgroundColor:"#4E6573"}}>
+                <div style={{marginTop:"14vh",backgroundColor:"#4E6573"}}>
                   <div> 
                 <Container> 
                 <Row>
@@ -529,18 +525,16 @@ const removeFile = () => {
                 </div>     
           </div> 
             </Card.Body>
-                {/* <Card.Footer className="text-muted" style={{backgroundColor:"yellow"}}> */}
                 <Card.Footer className="text-muted" style={{backgroundColor:"#526571"}}>
                     <Row> 
-                    <Col xl={2}>{isLoadingMethod()}</Col> 
-                    <Col xl={8}>
+                    <Col xl={2} l={3} s={3}>{isLoadingMethod()}</Col> 
+                    <Col xl={8} l={6} s={8}>
                       { (error) ? (
                         <center> <Alert variant="filled" severity="error" style={{color:"white", opacity:'0.75', height:"95%", width:"85%",left:"50%"}}>There is an error during the matching process, please retry or reach out to thaiwg@ </Alert> </center> 
                       ) :<> </>
                     }
-
                     </Col>
-                    <Col xl={2}> 
+                    <Col xl={2} l={3} s={3}> 
                     {downloadReadyMethod()}
                     </Col>
                     </Row> 
