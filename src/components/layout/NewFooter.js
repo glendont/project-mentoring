@@ -57,7 +57,10 @@ const NewFooter = () => {
           <div className="footer-bottom">
             <div class="row" style={{color:"#D4DBDB"}}>
 
-            <Col> <p style={{float:"left", fontSize:"11px"}} onClick={handleShow}> Feedback </p></Col>
+            <Col> <p style={{float:"left", fontSize:"11px", cursor:"pointer"}} onClick={handleShow}> Feedback  </p> <p style={{float:"left", fontSize:"11px", marginLeft:"10px", cursor:"pointer"}} onClick={()=>{
+                    Auth.signOut();
+                    window.location.reload(false);
+                  }}> Sign Out </p> </Col>
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
