@@ -1,3 +1,4 @@
+
 import React, {useCallback, useState, useEffect, Fragment} from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -344,7 +345,7 @@ const ComponentMethod = () => {
             <div style={{backgroundColor:"#4E6573", height:"100px", paddingLeft:"5%", paddingRight:'5%', paddingTop:"1%", color:'white'}}>   
 
             <Row>
-            <p className="secondary-text"> To upload a file larger than 160 GB, use the AWS CLI, AWS SDK, or Amazon S3 REST API. Learn more <RiShareBoxLine style={{ marginBottom:"2px"}}/> </p>
+            <p className="secondary-text"> If you are unsure of the data format requirements, download a dataset template here. <RiShareBoxLine href="https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx" onClick={()=>{window.open("https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx","_blank")}}style={{ marginBottom:"2px", zIndex:"5", cursor:"pointer"}}/> </p>
             </Row>
             <hr style={{backgroundColor:"white", padding:'-5%'}} />
             <Row>
@@ -364,7 +365,7 @@ const ComponentMethod = () => {
         return (
             <> 
             <Row >
-            <p className="secondary-text"> To upload a file larger than 160 GB, use the AWS CLI, AWS SDK, or Amazon S3 REST API. Learn more <RiShareBoxLine style={{ marginBottom:"2px"}}/> </p>
+            <p className="secondary-text"> If you are unsure of the data format requirements, download a dataset template here. <RiShareBoxLine href="https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx" onClick={()=>{window.open("https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx","_blank")}}style={{ marginBottom:"2px", zIndex:"5", cursor:"pointer"}}/> </p>
             </Row>
 
             <div style={{paddingTop:"6%", color:"white"}}> 
@@ -381,7 +382,7 @@ const ComponentMethod = () => {
               </Row>
 
               <Card.Text>
-              With supporting text below as a natural lead-in to additional content.
+              Alternatively, upload dataset by clicking on the button below. 
               </Card.Text>
 
               <Row>
@@ -415,7 +416,7 @@ const ComponentMethod = () => {
         return (
             <>
               <Row >
-            <p className="secondary-text"> To upload a file larger than 160 GB, use the AWS CLI, AWS SDK, or Amazon S3 REST API. Learn more <RiShareBoxLine style={{ marginBottom:"2px"}}/> </p>
+              <p className="secondary-text"> If you are unsure of the data format requirements, download a dataset template here. <RiShareBoxLine href="https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx" onClick={()=>{window.open("https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx","_blank")}}style={{ marginBottom:"2px", zIndex:"5", cursor:"pointer"}}/> </p>
             </Row>
 <div 
             style={{
@@ -457,7 +458,7 @@ const ComponentMethod = () => {
             <Col></Col>
             </Row>
             <Card.Text>
-            With supporting text below as a natural lead-in to additional content.
+            Alternatively, upload dataset by clicking on the button below. 
             </Card.Text>
             <Row>
             <Col></Col>

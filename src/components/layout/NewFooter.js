@@ -49,8 +49,6 @@ const NewFooter = () => {
         e.preventDefault();
       };
 
-
-
   return (
     <FooterContainer className="main-footer">
         <div style={{padding:"0 2%"}}> 
