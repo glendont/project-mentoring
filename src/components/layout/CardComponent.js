@@ -66,13 +66,25 @@ const CustomCheckBox = withStyles({
 })((props) => <Checkbox color="default" {...props} />);
 
     const classes = useStyles();
+
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
+        console.log("currentIndex: ",currentIndex)
         const newChecked = [...checked];
+        console.log("newChecked: ",newChecked)
+
         if (currentIndex === -1) {
+          var i;
+          for (i=0;i<value;i++){
+            if (!newChecked.includes(i)){
+              newChecked.push(i)
+            }
+          }
         newChecked.push(value);
+        console.log("newChecked 1: ",newChecked)
         } else {
         newChecked.splice(currentIndex, 1);
+        console.log("newChecked 2: ",newChecked)
         }
         setChecked(newChecked);
     };
@@ -84,7 +96,6 @@ const CustomCheckBox = withStyles({
       )
     } else {
       return ( 
-      // <div style={{backgroundColor:"red"}}>
       <div> 
         <div>
         <Row> 
@@ -109,6 +120,9 @@ const CustomCheckBox = withStyles({
           },
           {"key":6,
           "desc":"L4/5 Mentees having at least one L5/6 Mentor"}].map((value) => {
+            var max_of_array = Math.max.apply(Math, checked);
+            // console.log("Array :",checked);
+            // console.log("Max Array :", max_of_array);
             const labelId = `checkbox-list-secondary-label-${value}`;
             return (
             <ListItem key={value.key} button>
@@ -121,7 +135,7 @@ const CustomCheckBox = withStyles({
                 <CustomCheckBox
                     edge="end"
                     onChange={handleToggle(value.key)}
-                    checked={checked.indexOf(value.key) !== -1}
+                    checked={(value.key<=max_of_array) ? true : false}
                     inputProps={{ 'aria-labelledby': labelId }}
                 />
                 </ListItemSecondaryAction>
@@ -402,7 +416,7 @@ const ComponentMethod = () => {
                       <Col xl={3}></Col>
                       <Col xl={6}> <p>  Invalid File Type! <br/> Current supported file types: xlsx   </p> </Col>
                       <Col xl={3}></Col>
-                    
+
                       </> 
                   ) : (
                       <>
