@@ -204,8 +204,9 @@ const CustomCheckBox = withStyles({
       const sorted_checked = checked.sort()
       console.log("Sorted array: ", sorted_checked)
 
-      if (sorted_checked.includes(2)) {
-        var path = "input/strictest/"+profileState.filename
+
+      if(sorted_checked.includes(6)) {
+        var path = "input/5/"+profileState.filename
         console.log(path)
         Storage.put(path, profileState.file)
         .then(()=>{
@@ -220,26 +221,92 @@ const CustomCheckBox = withStyles({
           setStartTime(new Date().getTime()) 
           console.log(startTime)
         })
-      } 
-      else {
-        console.log("Default")
-        var path = "input/allowsameteams/"+profileState.filename
-        console.log(path)
-        Storage.put(path, profileState.file)
-        .then(()=>{
-          console.log("Successfully saved file!")
-          setfileUploaded(true);
-          setisLoading(false);
-          setStartTime(new Date().getTime()) 
-          console.log(startTime)
-        })
-        .catch(err=>{
-          console.log("Error uploading file", err)
-          setStartTime(new Date().getTime()) 
-          console.log(startTime)
-        })
-      }
-    }
+    } else if(sorted_checked.includes(5)) {
+      var path = "input/4/"+profileState.filename
+      console.log(path)
+      Storage.put(path, profileState.file)
+      .then(()=>{
+        console.log("Successfully saved file!")
+        setfileUploaded(true);
+        setisLoading(false);
+        setStartTime(new Date().getTime()) 
+         console.log(startTime)
+      })
+      .catch(err=>{
+        console.log("Error uploading file", err)
+        setStartTime(new Date().getTime()) 
+        console.log(startTime)
+      })
+  } else if(sorted_checked.includes(4)) {
+    var path = "input/3/"+profileState.filename
+    console.log(path)
+    Storage.put(path, profileState.file)
+    .then(()=>{
+      console.log("Successfully saved file!")
+      setfileUploaded(true);
+      setisLoading(false);
+      setStartTime(new Date().getTime()) 
+       console.log(startTime)
+    })
+    .catch(err=>{
+      console.log("Error uploading file", err)
+      setStartTime(new Date().getTime()) 
+      console.log(startTime)
+    })
+} else if(sorted_checked.includes(3)) {
+  var path = "input/2/"+profileState.filename
+  console.log(path)
+  Storage.put(path, profileState.file)
+  .then(()=>{
+    console.log("Successfully saved file!")
+    setfileUploaded(true);
+    setisLoading(false);
+    setStartTime(new Date().getTime()) 
+     console.log(startTime)
+  })
+  .catch(err=>{
+    console.log("Error uploading file", err)
+    setStartTime(new Date().getTime()) 
+    console.log(startTime)
+  })
+} else if(sorted_checked.includes(2)) {
+  var path = "input/1/"+profileState.filename
+  console.log(path)
+  Storage.put(path, profileState.file)
+  .then(()=>{
+    console.log("Successfully saved file!")
+    setfileUploaded(true);
+    setisLoading(false);
+    setStartTime(new Date().getTime()) 
+     console.log(startTime)
+  })
+  .catch(err=>{
+    console.log("Error uploading file", err)
+    setStartTime(new Date().getTime()) 
+    console.log(startTime)
+  })
+} else {
+  var path = "input/0/"+profileState.filename
+  console.log(path)
+  Storage.put(path, profileState.file)
+  .then(()=>{
+    console.log("Successfully saved file!")
+    setfileUploaded(true);
+    setisLoading(false);
+    setStartTime(new Date().getTime()) 
+     console.log(startTime)
+  })
+  .catch(err=>{
+    console.log("Error uploading file", err)
+    setStartTime(new Date().getTime()) 
+    console.log(startTime)
+  })
+
+}
+
+
+  
+}
 
       const isLoadingMethod = () => {
         if (fileLocalStorage === true && isLoading===true) {
