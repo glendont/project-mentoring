@@ -78,9 +78,9 @@ const About = () => {
         <Row> <p style={{fontFamily:"Amazon Ember"}}> The Mentoring Circle is an internal tool built to automate the process of matching mentors and mentees based on a set of predetermined matching conditions in order to achieve respective operational outcomes. </p></Row>
         <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: How does the tool work? </p> </b> </Row>
 
-        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 1: Through the landing page of the Mentoring Circle, click "Add Files" to upload your data file in the format denoted in section "Data Format and Requirements".</p></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 1: Through the landing page of the Mentoring Circle, click "Add Data" to upload your data file in the format denoted in section "Data Format and Requirements".</p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 2: On the checklist, indicate the compulsory conditions that have to be met during the matching process. Conditions that are not checked will be fulfiled on a best-effort basis. </p></Row>
-        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 3: Click "Upload".</p></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 3: Click "Match".</p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 4: The matching algorithm will be triggered automatically.</p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 5: When ready, a "Download" button would appear. Click on the button to download your results.</p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> Step 6: The results will be downloaded to your local machine.</p></Row>

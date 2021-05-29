@@ -301,9 +301,7 @@ const CustomCheckBox = withStyles({
     setStartTime(new Date().getTime()) 
     console.log(startTime)
   })
-
 }
-
 
   
 }
