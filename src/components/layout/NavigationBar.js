@@ -12,9 +12,9 @@ return (
     <Row >
     <Link to="/home" className="logo">
         <Col className="logo"> 
-        <p> The Mentoring</p>
-        <p  style={{marginTop:"-22px",marginLeft:"76px"}}> Circle</p>
-        <img src={logosmile} height="40px" width="170px" style={{margin:"-30px", marginLeft:"-40px", marginTop:"-80px"}}/> 
+        <p> Career Progress</p>
+        <p  style={{marginTop:"-23px",marginLeft:"71px"}}> Board</p>
+        <img src={logosmile} height="40px" width="150px" style={{margin:"-30px", marginLeft:"-40px", marginTop:"-75px"}}/> 
         </Col>    
 
     </Link>{" "}

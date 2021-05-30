@@ -204,7 +204,6 @@ const CustomCheckBox = withStyles({
       const sorted_checked = checked.sort()
       console.log("Sorted array: ", sorted_checked)
 
-
       if(sorted_checked.includes(6)) {
         var path = "input/5/"+profileState.filename
         console.log(path)

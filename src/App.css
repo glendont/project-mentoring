@@ -70,12 +70,12 @@
 .navbar{ 
   background-color:#232F3E;
   font-family:Roboto;
-  font-size:20px;
+  font-size:16px;
   color:white;
   font-weight:900;
-  min-height:85px;
+  min-height:70px;
   height:7vh;
-  padding-left:35px;
+  padding-left:23px;
 }
 
 .logo{
@@ -90,7 +90,8 @@ text-decoration: none;
 
 .about_button{
   color:white;
-  top:50%
+  top:50%;
+  font-size:16px;
 }
 
 .about_button:hover{
