@@ -57,7 +57,7 @@ const About = () => {
         <Row><Link to="overview" smooth={true} duration={1000} style={{all:"none%", paddingLeft:"50%"}}><p> <b> Overview </b></p>  </Link></Row>
         <Row><Link to="architecture" smooth={true} duration={1000} style={{all:"none%", paddingLeft:"50%"}}><p> <b> Architecture </b></p>  </Link></Row>
         <Row><Link to="security" smooth={true} duration={1000} style={{all:"none%", paddingLeft:"50%"}}><p> <b> Security </b></p>  </Link></Row>
-        {/* <Row><Link to="contact" smooth={true} duration={1000} style={{all:"none%", paddingLeft:"50%"}}><p> <b> Contact </b></p>  </Link></Row> */}
+        <Row><Link to="contact" smooth={true} duration={1000} style={{all:"none%", paddingLeft:"50%"}}><p> <b> Contact </b></p>  </Link></Row>
         </Col> 
         
         <Col md={6} style={{backgroundColor:"white", width:"50vw", marginLeft:"-30px"}}>
@@ -85,7 +85,7 @@ const About = () => {
         <Row> <p style={{fontFamily:"Amazon Ember"}}> The tool requires the user to input an Excel spreadsheet with the file extension of .xlsx. Within the Excel spreadsheet, there should be 2 separate sheets - 1) Mentor and 2) Mentee that contains the neccessary information of the candidates to perform the matching. A template for the input data can be downloaded <a href="https://mentor-mentee-matching-bucket190958-dev.s3.amazonaws.com/public/assets/Template.xlsx"> here</a>.  </p></Row>
 
         <Row id="architecture"> <b> <p style={{fontSize:"20px", marginTop:"20%"}}>Architecture</p> </b></Row>
-        <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: What is the Architecture Diagram of The Career Progress Board Matching Tool? </p> </b> </Row>
+        <Row> <b> <p style={{font:"Amazon Ember Bold"}}> Q: What is the Architecture Diagram of The Career Progress Board Matching? </p> </b> </Row>
         <Row> <img src={ArchitectureDiagram} height="420px"/> </Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> The tool utilises the following AWS Services: AWS Amplify, S3, Cognito and Lambda. </p></Row>
        
@@ -98,6 +98,9 @@ const About = () => {
         <Row> <p style={{fontFamily:"Amazon Ember"}}> In order to maintain the security and confidentality of the documents uploaded, the following mechanisms ensures that documents do not stay on the platform for a prolonged period of time: </p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> 1. Upon completed processing of the uploaded document, a lambda function is triggered to remove the original document from the S3 Bucket. </p></Row>
         <Row> <p style={{fontFamily:"Amazon Ember"}}> 2. In edge cases where documents are unable to complete processing due to an error, those documents are scheduled to be removed from the S3 Bucket through a <a href="https://www.google.com/search?q=eventsbridge+scheduuled+job&rlz=1C5CHFA_enSG914SG914&oq=eventsbridge+scheduuled+job&aqs=chrome..69i57.5622j0j7&sourceid=chrome&ie=UTF-8"> scheduled EventsBridge Rule. </a>  </p></Row>
+
+        <Row className="contact_class" id="contact"> <b> <p style={{fontSize:"20px", marginTop:"20%"}}>Contact</p> </b></Row>
+        <Row> <p style={{fontFamily:"Amazon Ember"}}>The tool is built by <a style={{color:"black"}} href="https://www.linkedin.com/in/glendonthaiw/">Glendon Thaiw</a> - If you'd require any additional guidance or troubleshooting support, please reach out at thaiwg@amazon.com.  </p></Row>
 
         </Col> 
        <Col md={2}> </Col>
